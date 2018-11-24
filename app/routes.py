@@ -1,10 +1,10 @@
 from os import listdir
 from os.path import isfile, join
 
-from flask import Flask, render_template
+from flask import render_template
 
 from app import app
-from app import utilities
+from app import form_util
 
 
 def generate_file_list():
@@ -40,7 +40,7 @@ def create_file_list():
 def input_practice():
     try:
         name = None
-        form = utilities.NameForm()
+        form = form_util.NameForm()
         if form.validate_on_submit():
             name = form.name.data
             form.name.data = ''
@@ -54,7 +54,7 @@ def input_practice():
 @app.route('/process', methods=['POST'])
 def process_input():
     try:
-        form = utilities.NameForm()
+        form = form_util.NameForm()
         print("Form data => " + form.name.data)
 
         return app

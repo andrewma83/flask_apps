@@ -1,12 +1,13 @@
+import datetime
+
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, TextAreaField
-from wtforms.validators import Required
-import datetime
+from wtforms.validators import DataRequired
 
 
 class NameForm(FlaskForm):
     def __init__(self):
-        self.name = StringField('What is your name ?', validators=[Required()])
+        self.name = StringField('What is your name ?', validators=[DataRequired()])
         self.note = TextAreaField('Daily Note')
         self.submit = SubmitField('Submit')
 
