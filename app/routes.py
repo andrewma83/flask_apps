@@ -5,6 +5,7 @@ from flask import render_template
 
 from app import app
 from app import form_util
+from app import name_test
 
 
 def generate_file_list():
@@ -18,11 +19,15 @@ def generate_file_list():
 
     return filelist
 
-
 @app.route('/')
 def home():
     try:
-        return render_template('index.html')
+        param_list = [name_test.name("Hello", "Kitty", "@Saniro")]
+        param_list.append(name_test.name("Mark", "Otto", "@motto"))
+        param_list.append(name_test.name("Jacob", "Thortton", "@fat"))
+        param_list.append(name_test.name("Larry", "Bird", "@Twitter"))
+
+        return render_template('index.html', table_params=param_list)
     except Exception as e:
         return str(e)
 

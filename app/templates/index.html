@@ -39,25 +39,23 @@
           <th>Username</th>
         </tr>
       </thead>
-      <tbody>
+
+
+        <tbody>
+        {% for table_param in table_params %}
         <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
+            <th scope="row">{{ loop.index }}</th>
+            {% if table_param %}
+            <td>{{ table_param.f_name }}</td>
+            <td>{{ table_param.l_name }}</td>
+            <td>{{ table_param.u_name }}</td>
+            {% else %}
+            <td>None</td>
+            <td>None</td>
+            <td>None</td>
+            {% endif %}
         </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Larry</td>
-          <td>the Bird</td>
-          <td>@twitter</td>
-        </tr>
+        {% endfor %}
       </tbody>
     </table>
 
