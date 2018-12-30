@@ -19,6 +19,7 @@
                         </ul>
             -->
             <a class="navbar-brand" href="/">Home</a>
+            <a class="navbar-brand" href="/">Test</a>
         </div>
     </div>
 </div>
@@ -27,15 +28,18 @@
 {% block content %}
 <div class="container">
     {% block page_content %}
-    <h1>Hello, Bootstrap</h1>
+    <h1>Worship Roster</h1>
 
     <table class="table">
       <thead>
         <tr>
           <th>#</th>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Username</th>
+            <th>DateName</th>
+            <th>Event</th>
+            <th>Chinese Speaker</th>
+            <th>Eng Speaker</th>
+            <th>Presider</th>
+            <th>Slide Control</th>
         </tr>
       </thead>
 
@@ -45,9 +49,12 @@
         <tr>
             <th scope="row">{{ loop.index }}</th>
             {% if table_param %}
-            <td>{{ table_param.f_name }}</td>
-            <td>{{ table_param.l_name }}</td>
-            <td>{{ table_param.u_name }}</td>
+            <td>{{ table_param.date}}</td>
+            <td>{{ table_param.event}}</td>
+            <td>{{ table_param.speaker_chi}}</td>
+            <td>{{ table_param.speaker_eng}}</td>
+            <td>{{ table_param.presider}}</td>
+            <td>{{ table_param.slide_ctrl}}</td>
             {% else %}
             <td>None</td>
             <td>None</td>
